@@ -77,5 +77,9 @@ Route::group(['namespace' => 'App\Http\Controllers\Company'], function (){
 //Pagina principal de curso
 Route::group(['namespace' => 'App\Http\Controllers\Home'], function (){ 
 	Route::get('/course/home', 'CourseHomeController@index')->name('home_course');
+	Route::get('/course/view-into-course-prev/{id}', 'CourseHomeController@view_home_course_prev')->name('company.view_into_course-prev');
 	Route::get('/course/view-into-course/{id}', 'CourseHomeController@view_home_course')->name('company.view_into_course');
+	Route::get('/course/view-into-course-inter/{id}', 'CourseHomeController@view_home_course_inter')->name('company.view_into_course_inter');
+	Route::get('/course/view-into-course-info/{id}', 'CourseHomeController@view_home_course_info')->name('company.view_into_course_info');
+	Route::get('/course/view-into-course-view/{id}', 'CourseHomeController@view_home_course_view')->name('company.view_into_course_view');
 });

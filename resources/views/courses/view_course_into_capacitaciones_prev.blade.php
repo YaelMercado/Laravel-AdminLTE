@@ -21,7 +21,7 @@
                 <div class="col-md-7">
                     <div class="row">
                         <div class="col-md-12">
-                            <img src="/img/logo_cap.png" style="width: 25%; padding:5px;" alt="">
+                            <img src="/img/logo_emp.png" style="width: 25%; padding:5px;" alt="">
                         </div>
                     </div>
                 
@@ -32,14 +32,20 @@
 
                     <div class="col-md-12">
                         <div class="col-md-6 col-md-offset-3">
-                                <a href="https://empleabilidad.redmundua.com/" class="btn btn-danger" style="color:white; width:100%; border-radius: 10px; margin-top: 10px;">INGRESAR</a>
+                                <a href="#" class="btn btn-danger" style="color:white; width:100%; border-radius: 10px; margin-top: 10px;">OFERTAS DE CURSOS</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="col-md-6 col-md-offset-3">
+                                <a href="#" class="btn btn-primary" style="color:white; width:100%; border-radius: 10px; margin-top: 10px;">MIS CURSOS</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-5">
                     <div class="col-md-12">
-                        <img src="/img/img_3.png" style="width: 100%; padding:5px;" alt="">
+                        <img src="/img/img_1.png" style="width: 100%; padding:5px;" alt="">
                     </div>
                 </div>
 			</div>

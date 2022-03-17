@@ -21,7 +21,7 @@
                 <div class="col-md-7">
                     <div class="row">
                         <div class="col-md-12">
-                            <img src="/img/logo_cap.png" style="width: 25%; padding:5px;" alt="">
+                            <img src="/img/logo_emp.png" style="width: 25%; padding:5px;" alt="">
                         </div>
                     </div>
                 
