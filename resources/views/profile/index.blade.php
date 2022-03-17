@@ -2,7 +2,7 @@
 
 @section('icon_page', 'user') 
 
-@section('title', 'User Profile') 
+@section('title', 'Perfil de usuario') 
 
 @section('content') 
 
@@ -31,8 +31,8 @@
 	<div class="col-md-9">
 		<div class="nav-tabs-custom">
 			<ul class="nav nav-tabs">
-				<li class="active"><a href="#profile" data-toggle="tab"><i class="fa fa-fw fa-user"></i> Profiel</a></li>
-				<li><a href="#settings" data-toggle="tab"><i class="fa fa-fw fa-key"></i> Password</a></li>
+				<li class="active"><a href="#profile" data-toggle="tab"><i class="fa fa-fw fa-user"></i> Perfil</a></li>
+				<li><a href="#settings" data-toggle="tab"><i class="fa fa-fw fa-key"></i> Contraseña</a></li>
 				<li><a href="#avatar" data-toggle="tab"><i class="fa fa-fw fa-file-photo-o"></i> Avatar</a></li>
 			</ul>
 			<div class="tab-content">
@@ -41,7 +41,7 @@
                         {{ csrf_field() }}
                         <input type="hidden" name="_method" value="put">
 						<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-                            <label for="nome">Name</label>
+                            <label for="nome">Nombre</label>
                             <input type="text" name="name" class="form-control" maxlength="30" minlength="4" placeholder="Name" required="" value="{{$user->name}}">
                             @if($errors->has('name'))
                                 <span class="help-block">
@@ -50,7 +50,7 @@
                             @endif
                         </div>
 						<div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-                            <label for="nome">E-mail</label>
+                            <label for="nome">Correo</label>
                             <input type="email" name="email" class="form-control" placeholder="E-mail" required="" value="{{$user->email}}">
                             @if($errors->has('email'))
                                 <span class="help-block">
@@ -59,7 +59,7 @@
                             @endif
                         </div>	
                         <div class="form-group text-right">
-                           <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-save"></i> Save Profile</button>
+                           <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-save"></i> Guardar Perfil</button>
                         </div>
 					</form>						
 				</div>
@@ -77,7 +77,7 @@
                             @endif
                         </div>
 						<div class="form-group {{ $errors->has('password-confirm') ? 'has-error' : '' }}">
-                            <label for="nome">Confirm Password</label>
+                            <label for="nome">Confirmar Contraseña</label>
                             <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password" minlength="6" required="">
                             @if($errors->has('password-confirm'))
                                 <span class="help-block">
@@ -86,7 +86,7 @@
                             @endif
                         </div>	
                         <div class="form-group text-right">
-                           <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-save"></i> Save Password</button>
+                           <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-save"></i> Gardar Contraseña</button>
                         </div>
 					</form>						
 				</div>
@@ -104,7 +104,7 @@
                             @endif
                         </div>	
                         <div class="form-group text-right">
-                           <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-save"></i> Save Avatar</button>
+                           <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-save"></i> Guardar Avatar</button>
                         </div>
                     </form>
 				</div>

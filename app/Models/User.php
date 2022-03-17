@@ -21,7 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'active'
+        'name', 'email', 'password', 'active', 'company_id'
     ];
 
     /**
@@ -55,6 +55,14 @@ class User extends Authenticatable
     public function isOnline()
     {
         return Cache::has('user-is-online-' . $this->id);
+    }
+
+    public function getPermission($permiso_name)
+    {
+        $roles = $this->roles()->first();
+        $permissions = Permission::join('permission_role', 'permission_role.id', 'permissions.id')->where('name', $permiso_name)->where('role_id',$roles->id)->dd();
+        //dd($permissions);
+        return true;
     }
 
 }

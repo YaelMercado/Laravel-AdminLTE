@@ -2,20 +2,24 @@
 
 @section('icon_page', 'user')
 
-@section('title', 'Users')
+@section('title', 'Usuarios')
 
 @section('menu_pagina')	
-		
+
+	@if (Auth::user()->can('create-user', ''))	
 	<li role="presentation">
 		<a href="{{ route('user.create') }}" class="link_menu_page">
-			<i class="fa fa-plus"></i> Add
+			<i class="fa fa-plus"></i> Añadir
 		</a>								
 	</li>
+	@endif
+	@if (Auth::user()->can('show-role', ''))
 	<li role="presentation">
 		<a href="{{ route('role') }}" class="link_menu_page">
-			<i class="fa fa-unlock-alt"></i> Permissions
+			<i class="fa fa-unlock-alt"></i> Permisos
 		</a>								
 	</li>
+	@endif
 
 @endsection
 
@@ -29,11 +33,11 @@
 						<table id="tabelapadrao" class="table table-condensed table-bordered table-hover">
 							<thead>
 								<tr>			 
-									<th>Name</th>			 
-									<th>E-mail</th>
-									<th class="text-center">Status</th>
-									<th class="text-center">Created</th>			 
-									<th class="text-center">Actions</th>			 
+									<th>Nombre</th>			 
+									<th>Correo</th>
+									<th class="text-center">Estatus</th>
+									<th class="text-center">Fecha creación</th>			 
+									<th class="text-center">Acciones</th>			 
 								</tr>
 							</thead>
 							<tbody>
@@ -51,17 +55,25 @@
 											<td>{{ $user->email }}</td>             
 											<td class="text-center">
 												@if($user->active == true)
-													<span class="label label-success">Active</span>
+													<span class="label label-success">Activo</span>
 												@else
-													<span class="label label-danger">Inactive</span>
+													<span class="label label-danger">Inactivo</span>
 												@endif
 											</td>             
 											<td class="text-center">{{ $user->created_at->format('d/m/Y H:i') }}</td>             
 											<td class="text-center"> 
+											@if (Auth::user()->can('show-user', ''))
 												 <a class="btn btn-default  btn-xs" href="{{ route('user.show', $user->id) }}" title="See {{ $user->name }}"><i class="fa fa-eye">   </i></a>
+											@endif
+											@if (Auth::user()->can('edit-user', ''))
 												 <a class="btn btn-primary  btn-xs" href="{{ route('user.edit.password', $user->id) }}" title="Change Password {{ $user->name }}"><i class="fa fa-key"></i></a>
+											@endif
+											@if (Auth::user()->can('edit-user', ''))	 
 												 <a class="btn btn-warning  btn-xs" href="{{ route('user.edit', $user->id) }}" title="Edit {{ $user->name }}"><i class="fa fa-pencil"></i></a> 
+											@endif
+											@if (Auth::user()->can('destroy-user', ''))	 
 												 <a class="btn btn-danger  btn-xs" href="#" title="Delete {{ $user->name}}" data-toggle="modal" data-target="#modal-delete-{{ $user->id }}"><i class="fa fa-trash"></i></a> 
+											@endif
 											</td> 
 										</tr>
 										<div class="modal fade" id="modal-delete-{{ $user->id }}">
@@ -71,10 +83,10 @@
 														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 															<span aria-hidden="true">×</span>
 														</button>
-														<h4 class="modal-title"><i class="fa fa-warning"></i> Caution!!</h4>
+														<h4 class="modal-title"><i class="fa fa-warning"></i> Alerta!!</h4>
 													</div>
 													<div class="modal-body">
-														<p>Do you really want to delete ({{ $user->name }}) ?</p>
+														<p>Esta seguro que quiere eliminar el usuario ({{ $user->name }}) ?</p>
 													</div>
 													<div class="modal-footer">
 														<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
@@ -88,11 +100,11 @@
 							</tbody>
 							<tfoot>
 								<tr>		 
-									<th>Name</th>			 
-									<th>E-mail</th>
-									<th class="text-center">Status</th>
-									<th class="text-center">Created</th>			 
-									<th class="text-center">Actions</th>			 
+									<th>Nombre</th>			 
+									<th>Correo</th>
+									<th class="text-center">Estatus</th>
+									<th class="text-center">Fecha de creación</th>			 
+									<th class="text-center">Acciones</th>			 
 								</tr>
 							</tfoot>
 						</table>

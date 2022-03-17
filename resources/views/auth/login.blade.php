@@ -5,6 +5,25 @@
             width: 360px;
             margin: 3% auto;
         }
+        .login-page{
+            background-size: cover;
+            background-image: url(https://empleabilidad.redmundua.com/theme/moove/pix/1.jpg);
+        }
+        .login-logo a, .register-logo a {
+            color: white !important;
+        }
+        .btn-primary {
+            background-color: #259a8e;
+            border-color: #1a8773;
+        }
+
+        .login-box-body, .register-box-body {
+            background: #ffffffe8;
+            padding: 20px;
+            border-top: 0;
+            color: #666;
+            border-radius: 5px;
+        }
     </style>
 @stop
 
@@ -24,18 +43,18 @@
                     <br/>
                 @endif
                
-                {!! \App\Models\Config::find(1)->titulo_login !!}             
+               {!! \App\Models\Config::find(1)->titulo_login !!}
             </div>
             <div class="login-box-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg"><strong>Inicio de sesión</strong></p>
                 <form  method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group has-feedback">
-                        <input id="email" type="text" class="form-control" placeholder="Usuário" name="email" value="{{ old('email') }}" autofocus required="" AUTOCOMPLETE='off'>
+                        <input id="email" type="text" class="form-control" placeholder="Usuario" name="email" value="{{ old('email') }}" autofocus required="" AUTOCOMPLETE='off'>
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <input id="password" type="password" class="form-control" placeholder="Senha" name="password" required="" AUTOCOMPLETE='off'>
+                        <input id="password" type="password" class="form-control" placeholder="Contraseña" name="password" required="" AUTOCOMPLETE='off'>
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                         @if ($errors->has('email'))
                             <br/>

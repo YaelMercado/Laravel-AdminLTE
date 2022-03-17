@@ -4,19 +4,27 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller; 
 use Illuminate\Http\Request;  
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 use App\Http\Requests\User\UpdatePasswordUserRequest;
 use App\Models\User; 
 use App\Models\Role; 
+use App\Models\Company; 
 
 class UserController extends Controller 
 { 
     public function index()
     { 
         $this->authorize('show-user', User::class);
-
-        $users = User::paginate(15);
+        $user_rol_auth = Auth::user()->roles()->first();
+        //dd($user_rol_auth->id);
+        if ($user_rol_auth->id > 2){
+            $users = User::where('company_id',Auth::user()->company_id)->paginate(15);
+        }else{
+            $users = User::paginate(15);
+        }
+        
 
         return view('users.index', compact('users'));
     }
@@ -33,19 +41,29 @@ class UserController extends Controller
         }  
 
         $roles = Role::all();
+        $empresas = Company::where('id', $user->company_id)->first();
 
 		$roles_ids = Role::rolesUser($user);      	               
 
-        return view('users.show',compact('user', 'roles', 'roles_ids'));
+        return view('users.show',compact('user', 'roles', 'roles_ids', 'empresas'));
     }
 
     public function create()
     {
         $this->authorize('create-user', User::class);
 
-        $roles = Role::all();
+        $user_rol_auth = Auth::user()->roles()->first();
+        //dd($user_rol_auth->id);
+        if ($user_rol_auth->id > 2){
+            $roles = Role::where('id','>',2)->get();
+            $empresas = Company::where('id', Auth::user()->company_id)->get();
+        }else{
+            $roles = Role::all();
+            $empresas = Company::all();
+        }
+        
 
-        return view('users.create',compact('roles'));
+        return view('users.create',compact('roles','empresas'));
     }
 
     public function store(StoreUserRequest $request)
@@ -76,11 +94,19 @@ class UserController extends Controller
             return redirect()->route('user');
         }  
 
-        $roles = Role::all();
+        $user_rol_auth = Auth::user()->roles()->first();
+        //dd($user_rol_auth->id);
+        if ($user_rol_auth->id > 2){
+            $roles = Role::where('id','>',2)->get();
+            $empresas = Company::where('id', Auth::user()->company_id)->get();
+        }else{
+            $roles = Role::all();
+            $empresas = Company::all();
+        }
 
 		$roles_ids = Role::rolesUser($user);       	               
 
-        return view('users.edit',compact('user', 'roles', 'roles_ids'));
+        return view('users.edit',compact('user', 'roles', 'roles_ids', 'empresas'));
     }
 
     public function update(UpdateUserRequest $request,$id)

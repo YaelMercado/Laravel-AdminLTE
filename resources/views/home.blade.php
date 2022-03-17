@@ -2,7 +2,7 @@
 
 @section('icon_page', 'dashboard')
 
-@section('title', 'Dashboard ')
+@section('title', 'Inicio ')
 
 @section('menu_pagina')	
 

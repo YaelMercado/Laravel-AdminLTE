@@ -2,20 +2,24 @@
 
 @section('icon_page', 'unlock-alt')
 
-@section('title', 'Permissions')
+@section('title', 'Permisos')
 
 @section('menu_pagina')	
 		
+	@if (Auth::user()->can('create-role', ''))
 	<li role="presentation">
 		<a href="{{ route('role.create') }}" class="link_menu_page">
-			<i class="fa fa-plus"></i> Add
+			<i class="fa fa-plus"></i> Añadir
 		</a>								
 	</li>
+	@endif
+	@if (Auth::user()->can('show-user', ''))
 	<li role="presentation">
 		<a href="{{ route('user') }}" class="link_menu_page">
-			<i class="fa fa-user"></i> Users
+			<i class="fa fa-user"></i> Usuarios
 		</a>								
 	</li>
+	@endif
 
 @endsection
 
@@ -43,9 +47,15 @@
 											<td>{{ $role->label }}</td>               
 											<td>{{ $role->created_at->format('d/m/Y H:i') }}</td>             
 											<td class="text-center"> 
+											@if (Auth::user()->can('show-role', ''))
 												 <a class="btn btn-default  btn-xs" href="{{ route('role.show', $role->id) }}" title=See {{ $role->name }}"><i class="fa fa-eye">   </i></a>						 
+											@endif
+											@if (Auth::user()->can('edit-role', ''))
 												 <a class="btn btn-warning  btn-xs" href="{{ route('role.edit', $role->id) }}" title="Edit {{ $role->name }}"><i class="fa fa-pencil"></i></a>
+											@endif
+											@if (Auth::user()->can('destroy-role', ''))	
 												 <a class="btn btn-danger  btn-xs" href="#" title="Delete {{ $role->name}}" data-toggle="modal" data-target="#modal-delete-{{ $role->id }}"><i class="fa fa-trash"></i></a>
+											@endif
 											</td> 
 										</tr>
 										<div class="modal fade" id="modal-delete-{{ $role->id }}">

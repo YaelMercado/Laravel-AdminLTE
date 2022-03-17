@@ -8,7 +8,7 @@
 		
 	<li role="presentation">
 		<a href="{{ route('user') }}" class="link_menu_page">
-			<i class="fa fa-user"></i> Users
+			<i class="fa fa-user"></i> Usuarios
 		</a>								
 	</li>
 
@@ -26,7 +26,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-                                        <label for="nome">Name</label>
+                                        <label for="nome">Nombre</label>
                                         <input type="text" name="name" class="form-control" maxlength="30" minlength="4" placeholder="Name" required="" autofocus value="{{$user->name}}">
                                         @if($errors->has('name'))
                                             <span class="help-block">
@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-                                        <label for="nome">E-mail</label>
+                                        <label for="nome">Correo</label>
                                         <input type="email" name="email" class="form-control" placeholder="E-mail" required="" value="{{$user->email}}">
                                         @if($errors->has('email'))
                                             <span class="help-block">
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group {{ $errors->has('roles') ? 'has-error' : '' }}">
-                                        <label for="nome">Permission Group</label>
+                                        <label for="nome">Perfil</label>
                                         <select name="roles[]" class="form-control select2" multiple="multiple" data-placeholder="Permission Group">
                                             @foreach($roles as $role)
                                                 @if($role->id != 1)
@@ -67,8 +67,18 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">                                    
+                                <div class="col-md-6 col-lg-6 col-6">
+                                <label for="universidad">Universidad</label>
+                                    <select class="form-control select2" name="company_id" id="company_id" required="">
+                                        @foreach($empresas as $company)
+                                            <option value="{{$company->id}}" {{($company->id == $user->company_id ? 'selected' : '')}} >{{$company->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="col-lg-6 text-center">
+                                    <div class="form-group" style="margin:auto;">                                    
                                         <label>
                                             <input type="hidden" name="active" value="0">
                                             <input type="checkbox" name="active" value="1" class="minimal" id="icheck" 
@@ -76,12 +86,12 @@
                                                 checked
                                             @endif
                                             >
-                                            Active
+                                            Activo
                                         </label>
                                     </div>
                                 </div> 
                                 <div class="col-lg-6">
-                                   <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-fw fa-save"></i> Save</button>
+                                   <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-fw fa-save"></i> Guardar</button>
                                 </div>
                             </div>
                         </form>

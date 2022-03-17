@@ -8,7 +8,7 @@
 		
 	<li role="presentation">
 		<a href="{{ route('user') }}" class="link_menu_page">
-			<i class="fa fa-user"></i> Users
+			<i class="fa fa-user"></i> Usuarios
 		</a>								
 	</li>
 
@@ -26,7 +26,7 @@
                             <div class="row">                            
                                 <div class="col-lg-6">
                                     <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
-                                        <label for="nome">Password</label>
+                                        <label for="nome">Contraseña</label>
                                         <input type="password" name="password" class="form-control" placeholder="Password" minlength="6" required="">
                                         @if($errors->has('password'))
                                             <span class="help-block">
@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group {{ $errors->has('password-confirm') ? 'has-error' : '' }}">
-                                        <label for="nome">Confirm Password</label>
+                                        <label for="nome">Confirmar contraseña</label>
                                         <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password" minlength="6" required="">
                                         @if($errors->has('password-confirm'))
                                             <span class="help-block">
@@ -48,10 +48,10 @@
                                 </div>
                                 <div class="col-lg-12"></div>
                                 <div class="col-lg-6">
-                                    <p class="text-muted"><b><i class="fa fa-warning"></i></b> Editing password <b>{{ $user->name }}</b>.</p>
+                                    <p class="text-muted"><b><i class="fa fa-warning"></i></b> Editando contraseña <b>{{ $user->name }}</b>.</p>
                                 </div> 
                                 <div class="col-lg-6">
-                                   <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-fw fa-save"></i> Save</button>
+                                   <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-fw fa-save"></i> Guardar</button>
                                 </div>
                             </div>
                         </form>
