@@ -14,7 +14,30 @@
 						{{ Request::segment(1) === 'course' ? 'active' : null }}
 						">
 						<a href="{{ route('course') }}" title="Cursos">
-							<i class="fa fa-user"></i> <span> Cursos</span>
+							<i class="fa fa-book" aria-hidden="true"></i> <span> Cursos</span>
+						</a>
+					</li>
+					@endif
+					@if (Auth::user()->can('show-estancia', ''))
+					<li class="
+						{{ Request::segment(1) === 'estancias' ? 'active' : null }}
+						">
+						<a href="{{ route('estancias') }}" title="Estancias">
+							<i class="fa fa-globe"></i> <span> Estancias</span>
+						</a>
+					</li>
+					<li class="
+						{{ Request::segment(1) === 'instructor' ? 'active' : null }}
+						">
+						<a href="{{ route('estancias') }}" title="Estancias">
+							<i class="fa fa-user-circle"></i> <span> Instructuros</span>
+						</a>
+					</li>
+					<li class="
+						{{ Request::segment(1) === 'carrers' ? 'active' : null }}
+						">
+						<a href="{{ route('estancias') }}" title="Estancias">
+							<i class="fa fa-university"></i> <span> Carreras</span>
 						</a>
 					</li>
 					@endif
@@ -23,10 +46,11 @@
 						{{ Request::segment(1) === 'company' ? 'active' : null }}
 						">
 						<a href="{{ route('company') }}" title="Cursos">
-							<i class="fa fa-user"></i> <span> Empresas</span>
+							<i class="fa fa-building"></i> <span> Universidades</span>
 						</a>
 					</li>
 					@endif
+
 			@if(Request::segment(1) === 'profile')
 
 			<li class="{{ Request::segment(1) === 'profile' ? 'active' : null }}">

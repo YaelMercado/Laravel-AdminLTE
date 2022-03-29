@@ -74,6 +74,18 @@ Route::group(['namespace' => 'App\Http\Controllers\Company'], function (){
 	Route::get('/company/destroy_view_home_course/{id}', 'CompanyController@view_home_course_assing_destroy')->name('company.view_home_course_assing_destroy');
 });
 
+//Estancias
+Route::group(['namespace' => 'App\Http\Controllers\Estancias'], function (){ 
+	//Empresas
+	Route::get('/estancias', 'EstanciasController@index')->name('estancias');
+	Route::get('/estancias/create', 'EstanciasController@create')->name('estancias.create');
+	Route::post('/estancias/store', 'EstanciasController@store')->name('estancias.store');
+	Route::get('/estancias/edit/{id}', 'EstanciasController@edit')->name('estancias.edit');
+	Route::put('/estancias/update/{id}', 'EstanciasController@update')->name('estancias.update');
+	Route::get('/estancias/show/{id}', 'EstanciasController@show')->name('estancias.show');
+	Route::get('/estancias/destroy/{id}', 'EstanciasController@destroy')->name('estancias.destroy');
+});
+
 //Pagina principal de curso
 Route::group(['namespace' => 'App\Http\Controllers\Home'], function (){ 
 	Route::get('/course/home', 'CourseHomeController@index')->name('home_course');
