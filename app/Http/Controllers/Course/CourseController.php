@@ -17,15 +17,24 @@ class CourseController extends Controller
         //dd($user);
         $courses = Courses::paginate(10);
         
-        if ($user_rol_auth->id >= 4){
+        if ($user_rol_auth->id == 4){
             $empresa_id = $user->company_id;
             $courses = Courses::join('view_course_by_company', function($join) use ($empresa_id)
             {
                 $join->on('empresa_id', '=', DB::RAW('(select '.$empresa_id.')'));
                 $join->on('universidad_id','=', 'courses.id');
-            })->select('courses.*', 'empresa_id', 'universidad_id', 'view_course_by_company.id as id_view')->get();
+            })->where('courses.id', '!=' ,'4')->select('courses.*', 'empresa_id', 'universidad_id', 'view_course_by_company.id as id_view')->get();
             return view('courses.view_course', compact('courses','empresa_id'));
-        }else{
+        }else if ($user_rol_auth->id >= 5){
+            $empresa_id = $user->company_id;
+            $courses = Courses::join('view_course_by_company', function($join) use ($empresa_id)
+            {
+                $join->on('empresa_id', '=', DB::RAW('(select '.$empresa_id.')'));
+                $join->on('universidad_id','=', 'courses.id');
+            })->where('courses.id', '!=' ,'1')->where('courses.id', '!=' ,'2')->select('courses.*', 'empresa_id', 'universidad_id', 'view_course_by_company.id as id_view')->get();
+            return view('courses.view_course', compact('courses','empresa_id'));
+        }
+        else{
             return view('courses.index', compact('courses'));
         }
         
