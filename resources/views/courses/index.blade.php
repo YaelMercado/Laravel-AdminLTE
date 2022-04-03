@@ -16,7 +16,7 @@
 	@if (Auth::user()->can('show-course', ''))
 	<li role="presentation">
 		<a href="{{ route('user') }}" class="link_menu_page">
-			<i class="fa fa-user"></i> Usuarios
+		<i class="fa fa-book" aria-hidden="true"></i> Cursos
 		</a>								
 	</li>
 	@endif

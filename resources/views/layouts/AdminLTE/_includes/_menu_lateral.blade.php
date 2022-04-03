@@ -26,18 +26,31 @@
 							<i class="fa fa-globe"></i> <span> Estancias</span>
 						</a>
 					</li>
+					@endif
+					@if (Auth::user()->can('show-instructores', ''))
 					<li class="
-						{{ Request::segment(1) === 'instructor' ? 'active' : null }}
+						{{ Request::segment(1) === 'instructores' ? 'active' : null }}
 						">
-						<a href="{{ route('estancias') }}" title="Estancias">
-							<i class="fa fa-user-circle"></i> <span> Instructuros</span>
+						<a href="{{ route('instructores') }}" title="Instructores">
+							<i class="fa fa-user-circle"></i> <span> Instructores</span>
 						</a>
 					</li>
+					@endif
+					@if (Auth::user()->can('show-carrers', ''))
 					<li class="
-						{{ Request::segment(1) === 'carrers' ? 'active' : null }}
+						{{ Request::segment(1) === 'carrers' || Request::segment(1) === 'semestre' || Request::segment(1) === 'materias' ? 'active' : null }}
 						">
-						<a href="{{ route('estancias') }}" title="Estancias">
-							<i class="fa fa-university"></i> <span> Carreras</span>
+						<a href="{{ route('carrers') }}" title="Carreras">
+							<i class="fa fa-graduation-cap"></i><span> Carreras</span>
+						</a>
+					</li>
+					@endif
+					@if (Auth::user()->can('show-certificaciones', ''))
+					<li class="
+						{{ Request::segment(1) === 'certificaciones' ? 'active' : null }}
+						">
+						<a href="{{ route('estancias') }}" title="Certificaciones">
+						<i class="fa fa-certificate"></i> <span> Certificaciones</span>
 						</a>
 					</li>
 					@endif

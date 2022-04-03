@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;  
 use Illuminate\Support\Facades\DB;
 use App\Models\Company; 
+use App\Models\Pais; 
 use App\Models\Courses; 
 use App\Models\View_course_by_company; 
 use Illuminate\Support\Facades\Auth;
@@ -36,7 +37,10 @@ class CompanyController extends Controller
     public function create()
     {
         $this->authorize('create-company', User::class);
-        return view('company.create');
+
+        $paises = Pais::All();
+        
+        return view('company.create', compact('paises'));
     }
 
     public function store(Request $request)
@@ -49,6 +53,16 @@ class CompanyController extends Controller
             $company->no_profesores = $request->profesores;
             $company->pais = $request->pais;
             $company->zona_horaria = $request->zona;
+
+            $company->address = $request->address;
+            $company->phone = $request->phone;
+            $company->url_site = $request->url_site;
+            $company->id_fiscal = $request->fiscal;
+            $company->text_id = $request->text_id;
+            $company->name_contact = $request->name_contac;
+            $company->puesto = $request->puesto;
+            $company->email = $request->email_admin;
+            $company->phone_contact = $request->phone_contact;
             $company->save();
         }else{
             return "Valores no validos";
@@ -62,7 +76,8 @@ class CompanyController extends Controller
     { 
         $this->authorize('edit-company', User::class);
         $company = Company::whereId($id)->first();
-        return view('company.edit', compact('company'));
+        $paises = Pais::All();
+        return view('company.edit', compact('company', 'paises'));
     }
 
     public function update(Request $request,$id)
@@ -74,6 +89,17 @@ class CompanyController extends Controller
         $company->no_profesores = $request->profesores;
         $company->pais = $request->pais;
         $company->zona_horaria = $request->zona;
+
+        $company->address = $request->address;
+        $company->phone = $request->phone;
+        $company->url_site = $request->url_site;
+        $company->id_fiscal = $request->fiscal;
+        $company->text_id = $request->text_id;
+        $company->name_contact = $request->name_contac;
+        $company->puesto = $request->puesto;
+        $company->email = $request->email_admin;
+        $company->phone_contact = $request->phone_contact;
+
         $company->save();
 
         $this->flashMessage('check', 'Empresa actualizado correctamente', 'success');

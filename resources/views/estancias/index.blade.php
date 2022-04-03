@@ -16,7 +16,7 @@
 	@if (Auth::user()->can('show-estancia', ''))
 	<li role="presentation">
 		<a href="{{ route('estancias') }}" class="link_menu_page">
-			<i class="fa fa-user"></i> Estancias
+		<i class="fa fa-globe"></i> Estancias
 		</a>								
 	</li>
 	@endif

@@ -48,13 +48,13 @@
 											<td>{{ $role->created_at->format('d/m/Y H:i') }}</td>             
 											<td class="text-center"> 
 											@if (Auth::user()->can('show-role', ''))
-												 <a class="btn btn-default  btn-xs" href="{{ route('role.show', $role->id) }}" title=See {{ $role->name }}"><i class="fa fa-eye">   </i></a>						 
+												 <a class="btn btn-default  btn-xs" href="{{ route('role.show', $role->id) }}" title=Ver {{ $role->name }}"><i class="fa fa-eye">   </i></a>						 
 											@endif
 											@if (Auth::user()->can('edit-role', ''))
-												 <a class="btn btn-warning  btn-xs" href="{{ route('role.edit', $role->id) }}" title="Edit {{ $role->name }}"><i class="fa fa-pencil"></i></a>
+												 <a class="btn btn-warning  btn-xs" href="{{ route('role.edit', $role->id) }}" title="Editar {{ $role->name }}"><i class="fa fa-pencil"></i></a>
 											@endif
 											@if (Auth::user()->can('destroy-role', ''))	
-												 <a class="btn btn-danger  btn-xs" href="#" title="Delete {{ $role->name}}" data-toggle="modal" data-target="#modal-delete-{{ $role->id }}"><i class="fa fa-trash"></i></a>
+												 <a class="btn btn-danger  btn-xs" href="#" title="Eliminar {{ $role->name}}" data-toggle="modal" data-target="#modal-delete-{{ $role->id }}"><i class="fa fa-trash"></i></a>
 											@endif
 											</td> 
 										</tr>
@@ -65,14 +65,14 @@
 														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 															<span aria-hidden="true">×</span>
 														</button>
-														<h4 class="modal-title"><i class="fa fa-warning"></i> Caution!!</h4>
+														<h4 class="modal-title"><i class="fa fa-warning"></i> Alerta!!</h4>
 													</div>
 													<div class="modal-body">
-														<p>Do you really want to delete ({{ $role->name }}) ?</p>
+														<p>¿Esta seguro que quiere eliminar el rol ({{ $role->name }}) ?</p>
 													</div>
 													<div class="modal-footer">
-														<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
-														<a href="{{ route('role.destroy', $role->id) }}" ><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button></a>
+														<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+														<a href="{{ route('role.destroy', $role->id) }}" ><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Eliminar</button></a>
 													</div>
 												</div>
 											</div>

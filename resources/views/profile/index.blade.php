@@ -42,7 +42,7 @@
                         <input type="hidden" name="_method" value="put">
 						<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                             <label for="nome">Nombre</label>
-                            <input type="text" name="name" class="form-control" maxlength="30" minlength="4" placeholder="Name" required="" value="{{$user->name}}">
+                            <input type="text" name="name" class="form-control" maxlength="30" minlength="4" placeholder="Nombre" required="" value="{{$user->name}}">
                             @if($errors->has('name'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('name') }}</strong>
@@ -69,7 +69,7 @@
                         <input type="hidden" name="_method" value="put">
 						<div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
                             <label for="nome">Password</label>
-                            <input type="password" name="password" class="form-control" placeholder="Password" minlength="6" required="">
+                            <input type="password" name="password" class="form-control" placeholder="Contraseña" minlength="6" required="">
                             @if($errors->has('password'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('password') }}</strong>
@@ -78,7 +78,7 @@
                         </div>
 						<div class="form-group {{ $errors->has('password-confirm') ? 'has-error' : '' }}">
                             <label for="nome">Confirmar Contraseña</label>
-                            <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password" minlength="6" required="">
+                            <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmar Contraseña" minlength="6" required="">
                             @if($errors->has('password-confirm'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('password-confirm') }}</strong>

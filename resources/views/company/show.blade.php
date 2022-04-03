@@ -2,13 +2,13 @@
 
 @section('icon_page', 'pencil')
 
-@section('title', 'Editar Empresa')
+@section('title', 'Universidad')
 
 @section('menu_pagina')	
 		
 	<li role="presentation">
 		<a href="{{ route('company') }}" class="link_menu_page">
-			<i class="fa fa-user"></i> Empresa
+        <i class="fa fa-building"></i> Universidades
 		</a>								
 	</li>
 
