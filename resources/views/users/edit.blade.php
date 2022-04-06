@@ -2,7 +2,7 @@
 
 @section('icon_page', 'pencil')
 
-@section('title', 'Edit User')
+@section('title', 'Editar Usuario')
 
 @section('menu_pagina')	
 		
@@ -27,7 +27,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                                         <label for="nome">Nombre</label>
-                                        <input type="text" name="name" class="form-control" maxlength="30" minlength="4" placeholder="Name" required="" autofocus value="{{$user->name}}">
+                                        <input type="text" name="name" class="form-control" maxlength="30" minlength="4" placeholder="Nombre" required="" autofocus value="{{$user->name}}">
                                         @if($errors->has('name'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('name') }}</strong>
@@ -49,7 +49,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group {{ $errors->has('roles') ? 'has-error' : '' }}">
                                         <label for="nome">Perfil</label>
-                                        <select name="roles[]" class="form-control select2" multiple="multiple" data-placeholder="Permission Group">
+                                        <select name="roles[]" class="form-control select2" multiple="multiple" data-placeholder="Roles">
                                             @foreach($roles as $role)
                                                 @if($role->id != 1)
                                                     @if(in_array($role->id, $roles_ids))

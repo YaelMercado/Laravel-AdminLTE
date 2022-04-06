@@ -65,4 +65,9 @@ class User extends Authenticatable
         return true;
     }
 
+    static function user_registrados($id_company, $role_id){
+        $users_num = $user_rol_auth = User::join('role_user', 'users.id', 'role_user.user_id')->where('company_id', $id_company)->where('role_id', $role_id)->count();
+        return $users_num;
+    }
+
 }

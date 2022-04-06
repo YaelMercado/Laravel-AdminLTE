@@ -96,13 +96,42 @@ class EstanciasController extends Controller
     public function update(Request $request,$id)
     {
         $this->authorize('edit-estancia', User::class);
-    	$estancias = Estancias::whereId($id)->first();
-        $estancias->name = $request->name;
-        $estancias->no_alumnos = $request->alumnos;
-        $estancias->no_profesores = $request->profesores;
-        $estancias->pais = $request->pais;
-        $estancias->zona_horaria = $request->zona;
-        $estancias->save();
+            $estancias = Estancias::whereId($id)->first();
+            $estancias->type_estancia = $request->type_estancia;
+            $estancias->name = $request->name;
+            $estancias->descripcion = $request->summary_ckeditor;
+            $estancias->fecha_inicio = $request->inicio;
+            $estancias->fecha_fin = $request->fin;
+            $estancias->pais_destino = $request->pais;
+            $estancias->universidad_destino = $request->universidad;
+            
+            if ($request->hasFile('destino')){
+                $imagen_destino = $request->destino->store('public/images');
+                $estancias->imagen_pais_destino = $imagen_destino;
+            }
+
+            if ($request->hasFile('unidestino')){
+                $imagen_uni_destino = $request->unidestino->store('public/images');
+                $estancias->imagen_universidad_destino = $imagen_uni_destino;
+            }
+
+            if ($request->hasFile('politicas')){
+                $file_politicas_reglamento = $request->politicas->store('public/images');
+                $estancias->archive_politias_reglas = $file_politicas_reglamento;
+            }
+
+            if ($request->hasFile('agenda')){
+                $file_agenda = $request->agenda->store('public/images');
+                $estancias->archive_agenda = $file_agenda;
+            }
+
+            if ($request->hasFile('fondo')){
+                $imagen_fondo = $request->fondo->store('public/images');
+                $estancias->imagen_portada = $imagen_fondo;
+                $estancias->imagen_fondo = $imagen_fondo;
+            }
+
+            $estancias->save();
 
         $this->flashMessage('check', 'Estancia actualizado correctamente', 'success');
         return redirect()->route('estancias');

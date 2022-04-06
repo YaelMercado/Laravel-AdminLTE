@@ -8,7 +8,7 @@
 		
 	<li role="presentation">
 		<a href="/course/view-into-course-info/{{$courses->id}}" class="link_menu_page">
-			<i class="fa fa-user"></i> Cursos
+        <i class="fa fa-book" aria-hidden="true"></i> Cursos
 		</a>								
 	</li>
 

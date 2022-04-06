@@ -12,6 +12,11 @@
 			<i class="fa fa-plus"></i> Añadir
 		</a>								
 	</li>
+	<li role="presentation">
+		<a href="{{ route('user.import') }}" class="link_menu_page">
+			<i class="fa fa-plus"></i> Importar por .CSV
+		</a>								
+	</li>
 	@endif
 	@if (Auth::user()->can('show-role', ''))
 	<li role="presentation">
@@ -89,8 +94,8 @@
 														<p>Esta seguro que quiere eliminar el usuario ({{ $user->name }}) ?</p>
 													</div>
 													<div class="modal-footer">
-														<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
-														<a href="{{ route('user.destroy', $user->id) }}"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button></a>
+														<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+														<a href="{{ route('user.destroy', $user->id) }}"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Eliminar</button></a>
 													</div>
 												</div>
 											</div>
