@@ -2,7 +2,7 @@
 
 @section('icon_page', 'pencil')
 
-@section('title', 'Editar contraseña de usuario')
+@section('title', 'Edit User Password')
 
 @section('menu_pagina')	
 		
@@ -27,7 +27,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
                                         <label for="nome">Contraseña</label>
-                                        <input type="password" name="password" class="form-control" placeholder="Contraseña" minlength="6" required="">
+                                        <input type="password" name="password" class="form-control" placeholder="Password" minlength="6" required="">
                                         @if($errors->has('password'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('password') }}</strong>
@@ -38,7 +38,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group {{ $errors->has('password-confirm') ? 'has-error' : '' }}">
                                         <label for="nome">Confirmar contraseña</label>
-                                        <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmar Contraseña" minlength="6" required="">
+                                        <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password" minlength="6" required="">
                                         @if($errors->has('password-confirm'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('password-confirm') }}</strong>

@@ -77,7 +77,7 @@
                           </div>
                         </div>-->
                         <div class="col-xs-12">
-                          <button type="submit" class="btn btn-primary btn-block btn-flat">Iniciar Sesión</button>
+                          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
                         </div>  
                         <br/><br/><br/>
                         <!--<div class="col-xs-12">

@@ -8,7 +8,7 @@
 		
 	<li role="presentation">
 		<a href="{{ route('course') }}" class="link_menu_page">
-        <i class="fa fa-book" aria-hidden="true"></i> Cursos
+			<i class="fa fa-user"></i> Cursos
 		</a>								
 	</li>
 

@@ -2,7 +2,7 @@
 
 @section('icon_page', 'unlock-alt')
 
-@section('title', 'Universidades')
+@section('title', 'Empresas')
 
 @section('menu_pagina')	
 	
@@ -16,7 +16,7 @@
 	@if (Auth::user()->can('show-company', ''))
 	<li role="presentation">
 		<a href="{{ route('company') }}" class="link_menu_page">
-		<i class="fa fa-building"></i> Empresas
+			<i class="fa fa-user"></i> Empresas
 		</a>								
 	</li>
 	@endif
@@ -34,10 +34,8 @@
 							<thead>
 								<tr>			 
 									<th>Nombre</th>			 
-									<th>Alumnos Contratados</th>
-									<th>Alumnos Registrados</th>
-									<th>Profesores Contratados</th>
-									<th>Profesores Registrados</th>
+									<th>Número de Alumnos</th>
+									<th>Número de Profesores</th>
 									<th>País</th>	
 									<th>Zona Horaria</th>	
 									<th>Fecha de creación</th>	 
@@ -49,19 +47,9 @@
 									
 										<tr>
 											<td>{{ $comp->name }}</td>             
-											<td>{{ $comp->no_alumnos }}</td>
-											<td>{{ App\Models\User::user_registrados($comp->id, 4)}}</td>               
+											<td>{{ $comp->no_alumnos }}</td>               
 											<td>{{ $comp->no_profesores }}</td> 
-											<td>{{ App\Models\User::user_registrados($comp->id, 5)}}</td>
-											@php
-												$pa = App\Models\Pais::where('id', $comp->pais)->get();
-											@endphp
-											@foreach($pa as $p)
-												<td>{{ $p->NOMBRE }}</td>
-											@endforeach
-											@if (empty($pa))
-												<td>Sin país</td>
-											@endif
+											<td>{{ $comp->pais }}</td>
 											<td>{{ $comp->zona_horaria }}</td>  
 											<td>{{ $comp->created_at->format('d/m/Y H:i') }}</td>             
 											<td class="text-center"> 

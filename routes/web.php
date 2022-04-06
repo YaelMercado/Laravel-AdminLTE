@@ -36,8 +36,6 @@ Route::group(['namespace' => 'App\Http\Controllers\User'], function (){
 	Route::put('/user/update/password/{id}', 'UserController@updatePassword')->name('user.update.password');
 	Route::get('/user/show/{id}', 'UserController@show')->name('user.show');
 	Route::get('/user/destroy/{id}', 'UserController@destroy')->name('user.destroy');
-	Route::get('/user/import', 'UserController@import')->name('user.import');
-	Route::post('/user/store_import', 'UserController@store_import')->name('user.store_import');
 	// Roles
 	Route::get('/role', 'RoleController@index')->name('role');
 	Route::get('/role/create', 'RoleController@create')->name('role.create');
@@ -86,53 +84,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Estancias'], function (){
 	Route::put('/estancias/update/{id}', 'EstanciasController@update')->name('estancias.update');
 	Route::get('/estancias/show/{id}', 'EstanciasController@show')->name('estancias.show');
 	Route::get('/estancias/destroy/{id}', 'EstanciasController@destroy')->name('estancias.destroy');
-});
-
-//Carreras
-Route::group(['namespace' => 'App\Http\Controllers\Carrers'], function (){ 
-	//Carreras
-	Route::get('/carrers', 'CarrersController@index')->name('carrers');
-	Route::get('/carrers/create', 'CarrersController@create')->name('carrers.create');
-	Route::post('/carrers/store', 'CarrersController@store')->name('carrers.store');
-	Route::get('/carrers/edit/{id}', 'CarrersController@edit')->name('carrers.edit');
-	Route::put('/carrers/update/{id}', 'CarrersController@update')->name('carrers.update');
-	Route::get('/carrers/show/{id}', 'CarrersController@show')->name('carrers.show');
-	Route::get('/carrers/destroy/{id}', 'CarrersController@destroy')->name('carrers.destroy');
-	Route::get('/carrers/add_semestre/{id}', 'CarrersController@add_semestre')->name('carrers.add_semestre');
-});
-
-Route::group(['namespace' => 'App\Http\Controllers\Semestre'], function (){ 
-	//Semestre
-	Route::get('/semestre', 'SemestreController@index')->name('semestre');
-	Route::get('/semestre/create/{id}', 'SemestreController@create')->name('semestre.create');
-	Route::post('/semestre/store', 'SemestreController@store')->name('semestre.store');
-	Route::get('/semestre/edit/{id}', 'SemestreController@edit')->name('semestre.edit');
-	Route::put('/semestre/update/{id}', 'SemestreController@update')->name('semestre.update');
-	Route::get('/semestre/show/{id}', 'SemestreController@show')->name('semestre.show');
-	Route::get('/semestre/destroy/{id}', 'SemestreController@destroy')->name('semestre.destroy');
-	Route::get('/semestre/add_materias/{id}', 'SemestreController@add_materias')->name('semestre.add_materias');
-});
-
-Route::group(['namespace' => 'App\Http\Controllers\Materias'], function (){ 
-	//Materias
-	Route::get('/materias', 'MateriasController@index')->name('materias');
-	Route::get('/materias/create/{id}', 'MateriasController@create')->name('materias.create');
-	Route::post('/materias/store', 'MateriasController@store')->name('materias.store');
-	Route::get('/materias/edit/{id}', 'MateriasController@edit')->name('materias.edit');
-	Route::put('/materias/update/{id}', 'MateriasController@update')->name('materias.update');
-	Route::get('/materias/show/{id}', 'MateriasController@show')->name('materias.show');
-	Route::get('/materias/destroy/{id}', 'MateriasController@destroy')->name('materias.destroy');
-});
-
-Route::group(['namespace' => 'App\Http\Controllers\Instructores'], function (){ 
-	//Instructores
-	Route::get('/instructores', 'InstructoresController@index')->name('instructores');
-	Route::get('/instructores/create', 'InstructoresController@create')->name('instructores.create');
-	Route::post('/instructores/store', 'InstructoresController@store')->name('instructores.store');
-	Route::get('/instructores/edit/{id}', 'InstructoresController@edit')->name('instructores.edit');
-	Route::put('/instructores/update/{id}', 'InstructoresController@update')->name('instructores.update');
-	Route::get('/instructores/show/{id}', 'InstructoresController@show')->name('instructores.show');
-	Route::get('/instructores/destroy/{id}', 'InstructoresController@destroy')->name('instructores.destroy');
 });
 
 //Pagina principal de curso

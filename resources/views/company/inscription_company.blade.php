@@ -8,7 +8,7 @@
 		
 	<li role="presentation">
 		<a href="{{ route('company') }}" class="link_menu_page">
-		<i class="fa fa-building"></i> Universidades
+			<i class="fa fa-user"></i> Universidades
 		</a>								
 	</li>
 

@@ -7,8 +7,8 @@
 @section('menu_pagina')	
 		
 	<li role="presentation">
-		<a href="{{ route('estancias') }}" class="link_menu_page">
-        <i class="fa fa-globe"></i> Estancias
+		<a href="{{ route('course') }}" class="link_menu_page">
+			<i class="fa fa-user"></i> Estancias
 		</a>								
 	</li>
 
