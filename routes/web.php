@@ -135,6 +135,39 @@ Route::group(['namespace' => 'App\Http\Controllers\Instructores'], function (){
 	Route::get('/instructores/destroy/{id}', 'InstructoresController@destroy')->name('instructores.destroy');
 });
 
+Route::group(['namespace' => 'App\Http\Controllers\Capacitaciones'], function (){ 
+	//Capacitaciones
+	Route::get('/capacitaciones', 'CapacitacionesController@index')->name('capacitaciones');
+	Route::get('/capacitaciones/create', 'CapacitacionesController@create')->name('capacitaciones.create');
+	Route::post('/capacitaciones/store', 'CapacitacionesController@store')->name('capacitaciones.store');
+	Route::get('/capacitaciones/edit/{id}', 'CapacitacionesController@edit')->name('capacitaciones.edit');
+	Route::put('/capacitaciones/update/{id}', 'CapacitacionesController@update')->name('capacitaciones.update');
+	Route::get('/capacitaciones/show/{id}', 'CapacitacionesController@show')->name('capacitaciones.show');
+	Route::get('/capacitaciones/destroy/{id}', 'CapacitacionesController@destroy')->name('capacitaciones.destroy');
+});
+
+Route::group(['namespace' => 'App\Http\Controllers\Certificaciones'], function (){ 
+	//Certificaciones
+	Route::get('/certificaciones', 'CertificacionesController@index')->name('certificaciones');
+	Route::get('/certificaciones/create', 'CertificacionesController@create')->name('certificaciones.create');
+	Route::post('/certificaciones/store', 'CertificacionesController@store')->name('certificaciones.store');
+	Route::get('/certificaciones/edit/{id}', 'CertificacionesController@edit')->name('certificaciones.edit');
+	Route::put('/certificaciones/update/{id}', 'CertificacionesController@update')->name('certificaciones.update');
+	Route::get('/certificaciones/show/{id}', 'CertificacionesController@show')->name('certificaciones.show');
+	Route::get('/certificaciones/destroy/{id}', 'CertificacionesController@destroy')->name('certificaciones.destroy');
+});
+
+Route::group(['namespace' => 'App\Http\Controllers\Pagos'], function (){ 
+	//Pagos
+	Route::get('/pagos', 'PagosController@index')->name('pagos');
+	Route::get('/pagos/create', 'PagosController@create')->name('pagos.create');
+	Route::post('/pagos/store', 'PagosController@store')->name('pagos.store');
+	Route::get('/pagos/edit/{id}', 'PagosController@edit')->name('pagos.edit');
+	Route::put('/pagos/update/{id}', 'PagosController@update')->name('pagos.update');
+	Route::get('/pagos/show/{id}', 'PagosController@show')->name('pagos.show');
+	Route::get('/pagos/destroy/{id}', 'PagosController@destroy')->name('pagos.destroy');
+});
+
 //Pagina principal de curso
 Route::group(['namespace' => 'App\Http\Controllers\Home'], function (){ 
 	Route::get('/course/home', 'CourseHomeController@index')->name('home_course');
@@ -144,3 +177,18 @@ Route::group(['namespace' => 'App\Http\Controllers\Home'], function (){
 	Route::get('/course/view-into-course-info/{id}', 'CourseHomeController@view_home_course_info')->name('company.view_into_course_info');
 	Route::get('/course/view-into-course-view/{id}', 'CourseHomeController@view_home_course_view')->name('company.view_into_course_view');
 });
+
+# /routes/api.php
+
+// Get list of meetings.
+Route::get('/meetings', 'App\Http\Controllers\Zoom\MeetingController@list');
+Route::get('/meetings/create', 'App\Http\Controllers\Zoom\MeetingController@create_view_zoom');
+Route::get('/meetings/view', 'App\Http\Controllers\Zoom\MeetingController@view_zoom_meeting');
+
+// Create meeting room using topic, agenda, start_time.
+Route::post('/meetings', 'App\Http\Controllers\Zoom\MeetingController@create');
+
+// Get information of the meeting room by ID.
+Route::get('/meetings/{id}', 'App\Http\Controllers\Zoom\MeetingController@get')->where('id', '[0-9]+');
+Route::patch('/meetings/{id}', 'App\Http\Controllers\Zoom\MeetingController@update')->where('id', '[0-9]+');
+Route::delete('/meetings/{id}', 'App\Http\Controllers\Zoom\MeetingController@delete')->where('id', '[0-9]+');

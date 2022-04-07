@@ -49,8 +49,26 @@
 					<li class="
 						{{ Request::segment(1) === 'certificaciones' ? 'active' : null }}
 						">
-						<a href="{{ route('estancias') }}" title="Certificaciones">
+						<a href="{{ route('certificaciones') }}" title="Certificaciones">
 						<i class="fa fa-certificate"></i> <span> Certificaciones</span>
+						</a>
+					</li>
+					@endif
+					@if (Auth::user()->can('show-capacitaciones', ''))
+					<li class="
+						{{ Request::segment(1) === 'capacitaciones' ? 'active' : null }}
+						">
+						<a href="{{ route('capacitaciones') }}" title="Capacitaciones">
+						<i class="fa fa-calendar-check-o" aria-hidden="true"></i> <span> Capacitaciones</span>
+						</a>
+					</li>
+					@endif
+					@if (Auth::user()->can('show-pagos', ''))
+					<li class="
+						{{ Request::segment(1) === 'pagos' ? 'active' : null }}
+						">
+						<a href="{{ route('pagos') }}" title="Pagos">
+						<i class="fa fa-money" aria-hidden="true"></i> <span> Pagos</span>
 						</a>
 					</li>
 					@endif
