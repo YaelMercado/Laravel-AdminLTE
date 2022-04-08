@@ -10,6 +10,6 @@ class Certificaciones extends Model
     protected $table = "certificaciones";
 
 	protected $fillable = [
-        'name', 'descripcion', 'fecha_incio', 'fecha_fin', 'active'
+        'name', 'descripcion', 'fecha_inicio', 'fecha_fin', 'active', 'type', 'id_instructor'
     ];
 }

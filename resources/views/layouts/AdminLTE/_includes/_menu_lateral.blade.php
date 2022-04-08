@@ -47,7 +47,7 @@
 					@endif
 					@if (Auth::user()->can('show-certificaciones', ''))
 					<li class="
-						{{ Request::segment(1) === 'certificaciones' ? 'active' : null }}
+						{{ Request::segment(1) === 'certificaciones' || (Request::segment(1) === 'meetings' && Request::segment(3) === '2') ? 'active' : null }}
 						">
 						<a href="{{ route('certificaciones') }}" title="Certificaciones">
 						<i class="fa fa-certificate"></i> <span> Certificaciones</span>
@@ -56,7 +56,7 @@
 					@endif
 					@if (Auth::user()->can('show-capacitaciones', ''))
 					<li class="
-						{{ Request::segment(1) === 'capacitaciones' ? 'active' : null }}
+						{{ Request::segment(1) === 'capacitaciones' || (Request::segment(1) === 'meetings' && Request::segment(3) === '1') ? 'active' : null }}
 						">
 						<a href="{{ route('capacitaciones') }}" title="Capacitaciones">
 						<i class="fa fa-calendar-check-o" aria-hidden="true"></i> <span> Capacitaciones</span>

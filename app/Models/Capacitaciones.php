@@ -10,6 +10,6 @@ class Capacitaciones extends Model
     protected $table = "capacitaciones";
 
 	protected $fillable = [
-        'name', 'descripcion', 'fecha_incio', 'fecha_fin', 'active'
+        'name', 'descripcion', 'fecha_incio', 'fecha_fin', 'active', 'id_instructor'
     ];
 }

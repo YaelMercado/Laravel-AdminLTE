@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Zoom;
 
 use App\Http\Controllers\Controller;
 use App\Traits\ZoomJWT;
+use App\Models\Unidades;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -37,6 +38,8 @@ class MeetingController extends Controller
 
     public function create(Request $request)
     {
+
+
         $validator = Validator::make($request->all(), [
             'topic' => 'required|string',
             'start_time' => 'required|date',
@@ -73,6 +76,28 @@ class MeetingController extends Controller
             ]
         ]);
 
+        $data = json_decode($response->body(), true);
+        //dd(($data));
+        if ($request){
+            
+            $estancias = new Unidades();
+            $estancias->codigo = $request->codigo;
+            $estancias->name = $request->topic;
+            $estancias->descripcion = $request->summary_ckeditor;
+            $estancias->agenda = $request->agenda;
+            $estancias->fecha_zoom = $request->start_time;
+            $estancias->url_zoom = $data['join_url'];
+            $estancias->id_zoom = $data['id'];
+            $estancias->type = $request->type;
+            $estancias->id_cert_cap = $request->id_cerf_cap;
+            $estancias->order = 1;
+        
+            $estancias->save();
+        }else{
+            return "Valores no validos";
+        }
+        
+        return redirect('meetings/table/'.$estancias->type."/".$estancias->id_cert_cap);
         return [
             'success' => $response->status() === 201,
             'data' => json_decode($response->body(), true),
@@ -85,8 +110,23 @@ class MeetingController extends Controller
         return view('zoom.view_meeting', compact('meeting_id', 'base64'));
     }
 
-    public function create_view_zoom(){
-        return view('zoom.create');
+    public function create_view_zoom(int $type, int $id){
+        return view('zoom.create', compact('type', 'id'));
+    }
+
+    public function table_unidades_zoom(int $type, int $id){
+        //$this->authorize('show-carrers', User::class);
+        //$user_rol_auth = Auth::user()->roles()->first();
+
+        if ($type == 1){
+            $estancias = Unidades::where('id_cert_cap', $id)->where('type', '1')->paginate(10);
+            $var_cap = "capacitaciones";
+        }else if ($type == 2){
+            $estancias = Unidades::where('id_cert_cap', $id)->where('type', '2')->paginate(10);
+            $var_cap = "certificaciones";
+        }
+
+        return view('zoom.table_unidades_zoom', compact('estancias', 'var_cap', 'type', 'id'));
     }
 
     public function get(Request $request, string $id)
@@ -143,12 +183,19 @@ class MeetingController extends Controller
 
     public function delete(Request $request, string $id)
     {
-        $path = 'meetings/' . $id;
-        $response = $this->zoomDelete($path);
-
-        return [
+        $unidades = Unidades::where('id_zoom', $id)->first();
+        //dd($unidades);
+        if ($unidades){
+            $path = 'meetings/' . $id;
+            $response = $this->zoomDelete($path);
+            $unidades->delete();
+            $this->flashMessage('check', 'Unidad eliminada exitosamente!', 'success');
+            return redirect()->back();
+        }
+        
+        /*return [
             'success' => $response->status() === 204,
             'data' => json_decode($response->body(), true),
-        ];
+        ];*/
     }
 }

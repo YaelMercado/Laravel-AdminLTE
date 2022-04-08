@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="col-md-10 col-md-offset-1" style="">
-                            <img src="{{ url('/img/estancia_semetral.png') }}" style="width: 100%;" alt="">
+                            <video controls src="{{ url('/img/movilidad_semestral.mp4') }}" style="width: 100%;" alt="">
                         </div>
 
                         <div class="col-md-8 col-md-offset-2">
@@ -45,7 +45,7 @@
                         </div>
                         
                         <div class="col-md-10 col-md-offset-1" style="">
-                            <img src="{{ url('/img/estancia_corta.png') }}" style="width: 100%;" alt="">
+                            <video controls src="{{ url('/img/estancia_corta.mp4') }}" style="width: 100%;" alt="">
                         </div>
 
                         <div class="col-md-8 col-md-offset-2">
@@ -58,7 +58,7 @@
                         </div>
                         
                         <div class="col-md-10 col-md-offset-1" style="">
-                            <img src="{{ url('/img/estancia_verano.png') }}" style="width: 100%;" alt="">
+                            <video controls src="{{ url('/img/estancia_verano.mp4') }}" style="width: 100%;" alt="">
                         </div>
 
                         <div class="col-md-8 col-md-offset-2">

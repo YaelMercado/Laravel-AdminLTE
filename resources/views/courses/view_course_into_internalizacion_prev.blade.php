@@ -27,7 +27,7 @@
                 
                     <div class="col-md-12" style="margin: auto; padding-top: 2%; padding-bottom: 2%;">
                         
-                        <img src="/img/teaser.png" style="width: 100%; padding:5px;" alt="">
+                        <video src="/img/internalizacion.mp4" controls style="width: 100%; padding:5px;" alt="">
                     </div>
 
                     <div class="col-md-12">

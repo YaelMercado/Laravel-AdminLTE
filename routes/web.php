@@ -182,13 +182,15 @@ Route::group(['namespace' => 'App\Http\Controllers\Home'], function (){
 
 // Get list of meetings.
 Route::get('/meetings', 'App\Http\Controllers\Zoom\MeetingController@list');
-Route::get('/meetings/create', 'App\Http\Controllers\Zoom\MeetingController@create_view_zoom');
-Route::get('/meetings/view', 'App\Http\Controllers\Zoom\MeetingController@view_zoom_meeting');
+Route::get('/meetings/create/{type}/{id}', 'App\Http\Controllers\Zoom\MeetingController@create_view_zoom');
+Route::get('/meetings/table/{type}/{id}', 'App\Http\Controllers\Zoom\MeetingController@table_unidades_zoom');
+Route::get('/meetings/view', 'App\Http\Controllers\Zoom\MeetingController@view_zoom_meeting')->name('unidades.show');
 
 // Create meeting room using topic, agenda, start_time.
 Route::post('/meetings', 'App\Http\Controllers\Zoom\MeetingController@create');
+Route::get('/meetings/edit/{id}', 'App\Http\Controllers\Zoom\MeetingController@edit')->name('unidades.edit');
 
 // Get information of the meeting room by ID.
 Route::get('/meetings/{id}', 'App\Http\Controllers\Zoom\MeetingController@get')->where('id', '[0-9]+');
 Route::patch('/meetings/{id}', 'App\Http\Controllers\Zoom\MeetingController@update')->where('id', '[0-9]+');
-Route::delete('/meetings/{id}', 'App\Http\Controllers\Zoom\MeetingController@delete')->where('id', '[0-9]+');
+Route::get('/meetingss/{id}', 'App\Http\Controllers\Zoom\MeetingController@delete')->name('unidades.destroy');

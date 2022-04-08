@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Certificaciones; 
 use App\Models\Semestre; 
 use App\Models\Courses; 
+use App\Models\Instructores; 
 use Illuminate\Support\Facades\Auth;
 
 class CertificacionesController extends Controller 
@@ -26,13 +27,15 @@ class CertificacionesController extends Controller
     { 
         $this->authorize('show-certificaciones', User::class);
         $estancias = Certificaciones::whereId($id)->first();
-        return view('certificaciones.show', compact('estancias'));
+        $instructores = Instructores::All();
+        return view('certificaciones.show', compact('estancias', 'instructores'));
     }
 
     public function create()
     {
         $this->authorize('create-certificaciones', User::class);
-        return view('certificaciones.create');
+        $instructores = Instructores::All();
+        return view('certificaciones.create', compact('instructores'));
     }
 
     public function store(Request $request)
@@ -44,7 +47,11 @@ class CertificacionesController extends Controller
             $estancias = new Certificaciones();
             $estancias->name = $request->name;
             $estancias->descripcion = $request->summary_ckeditor;
-        
+            $estancias->fecha_inicio = $request->fecha_inicio;
+            $estancias->fecha_fin = $request->fecha_fin;
+            $estancias->active = 1;
+            $estancias->type = 1;
+            $estancias->id_instructor = $request->instructor_id;
             $estancias->save();
         }else{
             return "Valores no validos";
@@ -58,18 +65,22 @@ class CertificacionesController extends Controller
     { 
         $this->authorize('edit-certificaciones', User::class);
         $estancias = Certificaciones::whereId($id)->first();
-        return view('certificaciones.edit', compact('estancias'));
+        $instructores = Instructores::All();
+        return view('certificaciones.edit', compact('estancias', 'instructores'));
     }
 
     public function update(Request $request,$id)
     {
         $this->authorize('edit-certificaciones', User::class);
-            $estancias = Certificaciones::whereId($id)->first();
-            
-            $estancias->name = $request->name;
-            $estancias->descripcion = $request->summary_ckeditor;
-
-            $estancias->save();
+        $estancias = Certificaciones::whereId($id)->first();
+        $estancias->name = $request->name;
+        $estancias->descripcion = $request->summary_ckeditor;
+        $estancias->fecha_inicio = $request->fecha_inicio;
+        $estancias->fecha_fin = $request->fecha_fin;
+        $estancias->active = 1;
+        $estancias->type = 1;
+        $estancias->id_instructor = $request->instructor_id;
+        $estancias->save();
 
         $this->flashMessage('check', 'Certificacion actualizada correctamente', 'success');
         return redirect()->route('certificaciones');
