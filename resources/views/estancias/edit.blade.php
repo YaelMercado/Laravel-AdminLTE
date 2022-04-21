@@ -30,7 +30,7 @@
                                 <select class="form-control select2" name="type_estancia" id="type_estancia" required="required">
                                    <option value="1" {{($estancias->type_estancia == 1 ? "selected": "")}} >Estancia Corta</option>
                                    <option value="2" {{($estancias->type_estancia == 2 ? "selected": "")}} >Estancia de Verano</option>
-                                   <option value="3" {{($estancias->type_estancia == 3 ? "selected": "")}} >Estancia Semestrak</option>
+                                   <option value="3" {{($estancias->type_estancia == 3 ? "selected": "")}} >Estancia Semestral</option>
                                 </select>
                             </div>
                             <div class="col-lg-6">

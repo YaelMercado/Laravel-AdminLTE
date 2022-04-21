@@ -30,3 +30,6 @@ Route::post('/meetings', 'App\Http\Controllers\Zoom\MeetingController@create');
 Route::get('/meetings/{id}', 'App\Http\Controllers\Zoom\MeetingController@get')->where('id', '[0-9]+');
 Route::patch('/meetings/{id}', 'App\Http\Controllers\Zoom\MeetingController@update')->where('id', '[0-9]+');
 Route::delete('/meetings/{id}', 'App\Http\Controllers\Zoom\MeetingController@delete')->where('id', '[0-9]+');
+
+Route::get('stripe', 'App\Http\Controllers\StripePaymentController@stripe');
+Route::post('stripe', 'App\Http\Controllers\StripePaymentController@stripePost')->name('stripe.post');

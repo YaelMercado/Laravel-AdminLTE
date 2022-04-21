@@ -2,13 +2,13 @@
 
 @section('icon_page', 'unlock-alt')
 
-@section('title', 'Cursos contratados')
+@section('title', 'Programas contratados')
 
 @section('menu_pagina')	
 		
 	<li role="presentation">
 		<a href="{{ route('course') }}" class="link_menu_page">
-        <i class="fa fa-book" aria-hidden="true"></i> Cursos
+        <i class="fa fa-book" aria-hidden="true"></i> Programas
 		</a>								
 	</li>
 
@@ -40,7 +40,7 @@
             </div>
                 
             @empty
-                <p>No hay cursos registrados</p>
+                <p>No hay Programas registrados</p>
             @endforelse
 
 

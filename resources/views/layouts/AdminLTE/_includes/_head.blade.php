@@ -42,6 +42,31 @@
         .caixa-alta { text-transform:uppercase; }
         .caixa-baixa { text-transform:lowercase; }
         .input-text-center{ text-align:center; }
+        .skin-red .main-header .navbar {
+                background-color: #ff6c31;
+        }
+        .skin-red .main-header .logo {
+                background-color: #fe6b31;
+                color: #fff;
+                border-bottom: 0 solid transparent;
+        }
+        .skin-red .sidebar-menu>li.active>a {
+                border-left-color: #fe6b31;
+        }
+        .skin-red .main-header .logo:hover {
+                background-color: #ff6c31;
+        }
+        .skin-red .main-header .navbar {
+                background-color: #ff6c31;
+        }
+        .skin-red .main-header li.user-header {
+                background-color: #ff6c31;
+        }
+        .box-body{
+                background-image: url(/img/fondo.png);
+                background-size: cover;
+                min-height: 72vh;
+        }
 </style>
 
 <script>

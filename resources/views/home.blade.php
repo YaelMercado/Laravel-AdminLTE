@@ -9,13 +9,13 @@
 @section('content')
   <div class="row">
     <div class="box box-primary">
-		<div class="box-body">
+		<div class="box-body" style="background-image: url(/img/fondo.png);background-size: cover;">
             <div class="col-md-12" style="height: 70vh;">
                 <div class="row">
                     <div class="col-md-8">
                         <div class="row">
                             <div class="col-md-12" style="text-align: center;">
-                                <img src="/img/logo_emp.png" style="width: 60%; padding:5px; margin-top: 12%;" alt="">
+                                <img src="/img/logo.png" style="width: 60%; padding:5px; margin-top: 12%;" alt="">
                             </div>
                             
                             <div class="col-md-12" style="text-align: center;">

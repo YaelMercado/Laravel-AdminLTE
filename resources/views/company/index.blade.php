@@ -69,7 +69,7 @@
 												 <a class="btn btn-default  btn-xs" href="{{ route('company.show', $comp->id) }}" title="Ver {{ $comp->name }}"><i class="fa fa-eye">   </i></a>	
 												 @endif
 												 @if (Auth::user()->can('create-company', ''))
-												 <a class="btn btn-primary  btn-xs" href="{{ route('company.assign_course', $comp->id) }}" title="Asignar cursos a {{ $comp->name }}"><i class="fa fa-users"></i></a>					 
+												 <a class="btn btn-primary  btn-xs" href="{{ route('company.assign_course', $comp->id) }}" title="Asignar Programas a {{ $comp->name }}"><i class="fa fa-users"></i></a>					 
 												 @endif
 												 @if (Auth::user()->can('edit-company', ''))
 												 <a class="btn btn-warning  btn-xs" href="{{ route('company.edit', $comp->id) }}" title="Editar {{ $comp->nombre }}"><i class="fa fa-pencil"></i></a>

@@ -47,7 +47,7 @@
   height:60px;
   bottom:40px;
   right:40px;
-  background-color:#dd4b39;
+  background-color:#ff6c31;
   color:#FFF;
   border-radius:50px;
   text-align:center;
@@ -57,7 +57,7 @@
 }
 .float:hover {
   text-decoration: none;
-  color: #dd4b39;
+  color: #ff6c31;
   background-color:#fff;
 }
 

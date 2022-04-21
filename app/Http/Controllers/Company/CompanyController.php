@@ -19,7 +19,9 @@ class CompanyController extends Controller
         $user_rol_auth = Auth::user()->roles()->first();
 
         if ($user_rol_auth->id > 2){
+            
             $company = Company::where('id',Auth::user()->company_id)->paginate(10);
+            $company = Company::paginate(10);
         }else{
             $company = Company::paginate(10);
         }

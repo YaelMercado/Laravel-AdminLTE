@@ -13,8 +13,8 @@
 					<li class="
 						{{ Request::segment(1) === 'course' ? 'active' : null }}
 						">
-						<a href="{{ route('course') }}" title="Cursos">
-							<i class="fa fa-book" aria-hidden="true"></i> <span> Cursos</span>
+						<a href="{{ route('course') }}" title="Programas">
+							<i class="fa fa-book" aria-hidden="true"></i> <span> Programas</span>
 						</a>
 					</li>
 					@endif
@@ -76,7 +76,7 @@
 					<li class="
 						{{ Request::segment(1) === 'company' ? 'active' : null }}
 						">
-						<a href="{{ route('company') }}" title="Cursos">
+						<a href="{{ route('company') }}" title="Programas">
 							<i class="fa fa-building"></i> <span> Universidades</span>
 						</a>
 					</li>
@@ -97,7 +97,7 @@
 				">
 				<a href="#">
 					<i class="fa fa-gear"></i>
-					<span>Configuración</span>
+					<span>Alta de Usuarios</span>
 					<span class="pull-right-container">
 						<i class="fa fa-angle-left pull-right"></i>
 					</span>

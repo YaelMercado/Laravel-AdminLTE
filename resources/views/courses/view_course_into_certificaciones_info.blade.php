@@ -2,13 +2,13 @@
 
 @section('icon_page', 'unlock-alt')
 
-@section('title', 'Cursos contratados')
+@section('title', 'Programas contratados')
 
 @section('menu_pagina')	
 		
 	<li role="presentation">
 		<a href="/course/view-into-course/{{$courses->id}}" class="link_menu_page">
-        <i class="fa fa-book" aria-hidden="true"></i> Cursos
+        <i class="fa fa-book" aria-hidden="true"></i> Programas
 		</a>								
 	</li>
 
@@ -16,12 +16,12 @@
 
 @section('content')    
     <div class="box box-primary">
-		<div class="box-body">
+		<div class="box-body" style="background-image: url(/img/fondo.png);background-size: cover;">
 			<div class="row" style="height: calc(100vh - 220px) !important;">
                 <div class="col-md-7">
                     <div class="row">
                         <div class="col-md-12">
-                            <img src="/img/logo_cer.png" style="width: 25%; padding:5px;" alt="">
+                            <img src="/img/logo_cer.png" style="width: 40%; padding:5px;" alt="">
                         </div>
                     </div>
                 

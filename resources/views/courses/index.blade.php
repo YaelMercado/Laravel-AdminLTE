@@ -2,7 +2,7 @@
 
 @section('icon_page', 'unlock-alt')
 
-@section('title', 'Cursos')
+@section('title', 'Programas')
 
 @section('menu_pagina')	
 
@@ -16,7 +16,7 @@
 	@if (Auth::user()->can('show-course', ''))
 	<li role="presentation">
 		<a href="{{ route('user') }}" class="link_menu_page">
-		<i class="fa fa-book" aria-hidden="true"></i> Cursos
+		<i class="fa fa-book" aria-hidden="true"></i> Programas
 		</a>								
 	</li>
 	@endif

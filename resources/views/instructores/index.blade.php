@@ -34,8 +34,8 @@
 							<thead>
 								<tr>			 	 
 									<th>Nombre</th>
-									<th>Imagen</th>
 									<th>Semblanza</th>	 
+									<th>Imagen</th>
                                     <th>Fecha</th>
 									<th class="text-center">Acciones</th>			 
 								</tr>
@@ -84,8 +84,8 @@
 							<tfoot>
 								<tr>		 
 									<th>Nombre</th>
-									<th>Imagen</th>
 									<th>Semblanza</th>	 
+									<th>Imagen</th>
                                     <th>Fecha</th>
 									<th class="text-center">Acciones</th>			 
 								</tr>

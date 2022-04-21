@@ -66,7 +66,7 @@
             </div>
                 
             @empty
-                <p>No hay cursos registrados</p>
+                <p>No hay Programas registrados</p>
             @endforelse
 
 

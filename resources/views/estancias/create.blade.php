@@ -29,7 +29,7 @@
                                 <select class="form-control select2" name="type_estancia" id="type_estancia" required="required">
                                    <option value="1">Estancia Corta</option>
                                    <option value="2">Estancia de Verano</option>
-                                   <option value="3">Estancia Semestrak</option>
+                                   <option value="3">Estancia Semestral</option>
                                 </select>
                             </div>
                             <div class="col-lg-6">

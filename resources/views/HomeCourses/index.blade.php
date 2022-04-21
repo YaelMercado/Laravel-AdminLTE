@@ -2,7 +2,7 @@
 
 @section('icon_page', 'unlock-alt')
 
-@section('title', 'Cursos')
+@section('title', 'Programas')
 
 @section('menu_pagina')	
 

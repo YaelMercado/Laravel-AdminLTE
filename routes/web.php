@@ -49,7 +49,7 @@ Route::group(['namespace' => 'App\Http\Controllers\User'], function (){
 
 });
 
-//Cursos
+//Programas
 Route::group(['namespace' => 'App\Http\Controllers\Course'], function (){ 
 	//Courses
 	Route::get('/course', 'CourseController@index')->name('course');
@@ -194,3 +194,6 @@ Route::get('/meetings/edit/{id}', 'App\Http\Controllers\Zoom\MeetingController@e
 Route::get('/meetings/{id}', 'App\Http\Controllers\Zoom\MeetingController@get')->where('id', '[0-9]+');
 Route::patch('/meetings/{id}', 'App\Http\Controllers\Zoom\MeetingController@update')->where('id', '[0-9]+');
 Route::get('/meetingss/{id}', 'App\Http\Controllers\Zoom\MeetingController@delete')->name('unidades.destroy');
+
+Route::get('stripe', 'App\Http\Controllers\StripePaymentController@stripe');
+Route::post('stripe', 'App\Http\Controllers\StripePaymentController@stripePost')->name('stripe.post');
